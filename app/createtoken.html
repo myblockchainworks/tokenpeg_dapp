@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Token PEG DApp</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="./app.js"></script>
+  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="8aea0d46-9827-4711-8420-158a09eeae79";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+</head>
+<body>
+  <a href="index.html"><h1>YouTube Token PEG DApp</h1></a>
+  <div  style="float:right">
+    <span><a href="tokensearch.html">Interact With Token Contract</a></span> | <a href="createtoken.html">Create Token Contract</a> | <span style="color:#8bff77"></span> <span id="currentUserName"></span>
+  </div>
+  <br />
+  <div style="margin-left:25%;margin-right:25%;margin-top:5%" id="newClaimScreen">
+    <h2>Create Token</h2>
+    <p>Create Youtube Token Contract with the following parameters.</p>
+    <input type="text" id="youtubeId" required placeholder="Channel Id: e.g. UCBJycsmduvYEL83R_U4JriQ" onchange="App.getSubscriberCountFromAPI()"></input>
+    <input type="text" id="youtubeTitle" required placeholder="Channel Title: e.g. Marques Brownlee" readonly></input>
+    <input type="number" id="subscriberCount" required placeholder="Total Subscriber: e.g. 1000" onchange="App.updateTotalSupply()" readonly></input>
+    <input type="number" id="totalSupply" required placeholder="Total Supply: e.g. 1000" readonly></input>
+    <input type="text" id="tokenName" required placeholder="Token Name: e.g. DM Tokens"></input>
+    <input type="text" id="tokenSymbol" required placeholder="Symbol: e.g. DMT"></input>
+    <br /><br />
+    <button onclick="App.createNewToken()" id="addTokenButton">Create Token</button>
+  </div>
+  <span id="status"></span>
+  <br>
+</body>
+</html>

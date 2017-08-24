@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Token PEG DApp</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="./app.js"></script>
+  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="8aea0d46-9827-4711-8420-158a09eeae79";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+</head>
+<body onload="App.loadContract()">
+  <a href="index.html"><h1>YouTube Token PEG DApp</h1></a>
+  <div  style="float:right">
+    <span><a href="tokensearch.html">Interact With Token Contract</a></span> | <a href="createtoken.html">Create Token Contract</a> | <span style="color:#8bff77"></span> <span id="currentUserName"></span>
+  </div>
+  <br />
+  <div style="margin-left:25%;margin-right:5%" id="newClaimScreen">
+    <h2 id="channelDetail">Channel Detail</h2>
+    <h3 id="contractName">Token Name</h3>
+    <p id="contractAddress"></p>
+    <p id="totalSupply"></p>
+    <input type="hidden" id="existingSubscribers" />
+
+    <br />
+    <h4 id="transferTokenTitle">Transfer Token</h4>
+    <span>
+      Transfer to another account.
+    </span>
+    <br />
+    <input type="text" id="toAddress" required placeholder="to address: e.g. 0x123456..."></input><br />
+    <input type="number" id="sendAmount" required placeholder="amount: e.g. 10"></input>
+    <button onclick="App.transferToken()" id="transferButton">Transfer</button>
+
+    <br /><br />
+    <h4 id="approveTokenTitle">Approve Account</h4>
+    <span>
+      Approve account to withdraw multiple times up to the specified amount.
+    </span>
+    <br />
+    <input type="text" id="toAddress2" required placeholder="to address: e.g. 0x123456..."></input><br />
+    <input type="number" id="sendAmount2" required placeholder="amount: e.g. 10"></input>
+    <button onclick="App.approveAccountTokenAmount()" id="approveAmountButton">Approve Amount</button>
+    <p id="approveResult"></p>
+
+    <br />
+    <h4 id="checkBalanceTitle">Check Balance</h4>
+    <span>
+      Check balance of account.
+    </span>
+    <br />
+    <input type="text" id="toAddress3" required placeholder="address: e.g. 0x123456..."></input>
+    <button onclick="App.checkAccountBalance()">Check Balance</button>
+    <p id="balanceResult"></p>
+
+    <br />
+    <h4 id="transferAllowanceTitle">Transfer Allowance</h4>
+    <span>
+      Transfer between accounts a specified amount that you've been authorised to do so.
+    </span>
+    <br />
+    <input type="text" id="fromAddress4" required placeholder="from address: e.g. 0x123456..."></input><br />
+    <input type="text" id="toAddress4" required placeholder="to address: e.g. 0x123456..."></input><br />
+    <input type="number" id="sendAmount4" required placeholder="amount: e.g. 10"></input>
+    <button onclick="App.transferAllowanceToken()" id="transferAllowanceButton">Transfer Allowance</button>
+    <p id="transferAllowanceResult"></p>
+
+    <br />
+    <h4 id="checkAllowanceTitle">Check Allowance</h4>
+    <span>
+      Check what amount has been approved for withdrawal between two accounts.
+    </span>
+    <br />
+    <input type="text" id="ownerAddress" required placeholder="owner address: e.g. 0x123456..."></input><br />
+    <input type="text" id="spenderAddress" required placeholder="spender address: e.g. 0x123456..."></input>
+    <button onclick="App.checkAllowance()">Check Allowance</button>
+    <p id="allowanceResult"></p>
+
+    <br />
+    <h4 id="updateSubscribersTitle">Update Subscribers Count</h4>
+    <span>
+      Update the existing Subscribers counts, this will also update the total token suppied to this contract.
+    </span>
+    <br />
+    <input type="number" id="newSubscribers" required placeholder="address: e.g. 10000"></input>
+    <button onclick="App.updateSubscribers()" id="updateSubscribersButton">Update Subscribers</button>
+    <p id="updateSubscribersResult"></p>
+  </div>
+  <span id="status"></span>
+  <br>
+</body>
+</html>
